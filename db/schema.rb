@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_03_055811) do
-  create_table "diaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2023_12_03_160402) do
+  create_table "diaries", charset: "utf8mb3", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -19,22 +19,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_03_055811) do
     t.index ["user_id"], name: "index_diaries_on_user_id"
   end
 
-  create_table "tags", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tag_diaries", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "diary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diary_id"], name: "index_tag_diaries_on_diary_id"
+    t.index ["tag_id"], name: "index_tag_diaries_on_tag_id"
+  end
+
+  create_table "tags", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_tags", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "tag_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_user_tags_on_tag_id"
-    t.index ["user_id"], name: "index_user_tags_on_user_id"
-  end
-
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -42,6 +42,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_03_055811) do
   end
 
   add_foreign_key "diaries", "users"
-  add_foreign_key "user_tags", "tags"
-  add_foreign_key "user_tags", "users"
+  add_foreign_key "tag_diaries", "diaries"
+  add_foreign_key "tag_diaries", "tags"
 end
