@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root 'diaries#index'
 
+  resources :diaries
   resources :users
   resources :tags, only: [:index, :show]
 end

@@ -1,3 +1,8 @@
+<%= search_form_for @q, url: diaries_path do |f| %>
+  <%= f.label :content_cont, 'テキスト' %>
+  <%= f.search_field :content_cont %>
+  <%= f.submit '検索' %>
+<% end %>
 <ul>
   <% @diaries.each do |diary| %>
     <div class="card mb-1">
