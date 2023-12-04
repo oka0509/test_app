@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-  belongs_to :user_tabs
+  has_many :tag_diaries, dependent: destroy
 end
