@@ -1,6 +1,7 @@
 class DiariesController < ApplicationController
 
   def index
-    @diaries = Diary.all
+    @q = Diary.ransack(params[:q])
+    @diaries = @q.result
   end
 end

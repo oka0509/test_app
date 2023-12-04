@@ -1,3 +1,12 @@
+<%= search_form_for @q, url: diaries_path do |f| %>
+  <%= f.label :content_cont, 'テキスト' %>
+  <%= f.search_field :content_cont %>
+  <%= f.label :user_name_cont, 'ユーザー名' %>
+  <%= f.search_field :user_name_cont %>
+  <%= f.label :user_name_cont, 'タグ名' %>
+  <%= f.collection_select :tags_name_cont, Tag.all, :id, :name, prompt: "" %>
+  <%= f.submit '検索' %>
+<% end %>
 <ul>
   <% @diaries.each do |diary| %>
     <div class="card mb-1">
@@ -7,6 +16,11 @@
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p><%= diary.content %></p>
+          <p>
+            <% diary.tags.each do |tag| %>
+            <a href='#'><span class='badge text-bg-secondary'><%= tag.name %></span></a>
+            <% end%>
+          </p>
           <footer class="blockquote-footer"><%= diary.user.name %></footer>
         </blockquote>
       </div>
