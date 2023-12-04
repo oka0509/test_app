@@ -12,6 +12,11 @@
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p><%= diary.content %></p>
+          <p>
+            <% diary.tags.each do |tag| %>
+            <a href='#'><span class='badge text-bg-secondary'><%= tag.name %></span></a>
+            <% end%>
+          </p>
           <footer class="blockquote-footer"><%= diary.user.name %></footer>
         </blockquote>
       </div>

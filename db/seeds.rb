@@ -17,3 +17,10 @@ User.all.each do |user|
     content: Faker::Lorem.paragraph(sentence_count: 7),
   )
 end
+
+Diary.all.each do |diary|
+  tags = Tag.order('RAND()').limit(rand(1..4))
+  tags.each do|tag|
+    diary.take_tag(tag)
+  end
+end
