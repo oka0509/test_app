@@ -1,5 +1,15 @@
-<ul>
+<ul class="mt-1 px-5">
   <% @diaries.each do |diary| %>
-    <li><a href="#"><%= diary.content %></a></li>
+    <div class="card mb-1">
+      <div class="card-header">
+        <%= diary.user.updated_at %>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p><%= diary.content %></p>
+          <footer class="blockquote-footer"><%= diary.user.name %></footer>
+        </blockquote>
+      </div>
+    </div>
   <% end %>
 </ul>
