@@ -42,6 +42,7 @@ gem 'jbuilder'
 # gem "bcrypt", "~> 3.1.7"
 
 gem 'bootstrap', '~> 5.3'
+gem 'jquery-rails'
 gem 'mini_racer'
 gem 'sassc-rails'
 
