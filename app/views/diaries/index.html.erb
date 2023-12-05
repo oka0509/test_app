@@ -18,7 +18,9 @@
           <p><%= diary.content %></p>
           <p>
             <% diary.tags.each do |tag| %>
-            <a href='#'><span class='badge text-bg-secondary'><%= tag.name %></span></a>
+              <%= link_to root_path(q: {tags_name_cont: tag.id}) do %>
+                <span class='badge text-bg-secondary'><%= tag.name %></span>
+                <% end %>
             <% end%>
           </p>
           <footer class="blockquote-footer"><%= diary.user.name %></footer>
