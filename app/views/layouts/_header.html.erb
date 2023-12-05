@@ -13,17 +13,21 @@
           <a class="nav-link" href="users">ユーザー一覧</a>
         </li>
       </ul>
-      <div class="d-flex nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          個人画面
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">個人情報確認</a></li>
-          <li><a class="dropdown-item" href="#">個人データ分析</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">ログアウト</a></li>
-        </ul>
-      </div>
+      <% if logged_in? %>
+        <div class="d-flex nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            個人画面
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">個人情報確認</a></li>
+            <li><a class="dropdown-item" href="#">個人データ分析</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to 'ログアウト', session_path(current_user), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "dropdown-item" %></li>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to "ログイン/新規登録", new_session_path %>
+      <%end%>
     </div>
   </div>
 </nav>

@@ -2,7 +2,8 @@
 30.times do |n|
   User.create!(
     email: "test#{n + 1}@test.com",
-    name: "user#{n + 1}"
+    name: "user#{n + 1}",
+    password: 'password'
   )
 end
 
