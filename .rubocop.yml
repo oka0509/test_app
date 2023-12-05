@@ -77,7 +77,8 @@ Layout/ExtraSpacing:
   Enabled: false
 
 Layout/IndentationConsistency:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: indented_internal_methods
 
 Layout/SpaceBeforeBlockBraces:
   Enabled: false
