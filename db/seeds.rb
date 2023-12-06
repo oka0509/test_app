@@ -7,17 +7,19 @@
   )
 end
 
-30.times do |n|
+10.times do |n|
   Tag.create!(
     name: "category#{n + 1}"
   )
 end
 
 User.all.each do |user|
+  30.times do |n|
   user.diaries.create!(
     content: Faker::Lorem.paragraph(sentence_count: 40),
     created_at: Time.now - 2.days
   )
+  end
 end
 
 Diary.all.each do |diary|
