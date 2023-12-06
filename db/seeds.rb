@@ -16,6 +16,7 @@ end
 User.all.each do |user|
   user.diaries.create!(
     content: Faker::Lorem.paragraph(sentence_count: 7),
+    created_at: Time.now - 2.days
   )
 end
 
