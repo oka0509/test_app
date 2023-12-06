@@ -11,6 +11,10 @@ gem 'rails', '~> 7.1.2'
 
 gem 'ransack'
 
+gem 'kaminari'
+
+gem 'bootstrap4-kaminari-views'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
