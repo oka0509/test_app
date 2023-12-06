@@ -3,7 +3,7 @@ class DiariesController < ApplicationController
   def index
     @diary = Diary.new
     @q = Diary.ransack(params[:q])
-    @diaries = @q.result
+    @diaries = @q.result.order(created_at: :desc).page(params[:page])
   end
 
   def create
