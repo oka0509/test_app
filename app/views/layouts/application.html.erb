@@ -13,7 +13,37 @@
   <body>
     <%= render 'layouts/header' %>
     <div class='container-md pt-1 px-5'>
-      <%= yield %>
+      <div class="row">
+        <div class="col-2">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+            日記を追加
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">日記を追加</h5>
+                </div>
+                <%= form_with model: @diary do |f| %>
+                  <div class="modal-body form-group">
+                      <%= f.text_field :content, class:"form-control" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
+                    <%= f.submit "記録する",  class: "btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-10">
+          <%= yield %>
+        </div>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>
