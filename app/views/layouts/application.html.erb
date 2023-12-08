@@ -33,7 +33,7 @@
                     </div>
                     <%= form_with model: @diary do |f| %>
                       <div class="modal-body form-group">
-                          <%= f.text_field :content, class:"form-control" %>
+                          <%= f.text_area :content, class: "form-control", rows: 3 %>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
