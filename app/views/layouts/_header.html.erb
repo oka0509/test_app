@@ -1,16 +1,16 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+<nav class="navbar navbar-expand-lg bg-info px-5 pt-3 pb-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">夢日記</a>
+    <%= link_to '夢日記', root_path, class: "navbar-brand text-white" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/tags">タグ一覧</a>
+          <%= link_to 'タグ一覧', tags_path, class: 'nav-link text-white'%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="users">ユーザー一覧</a>
+          <%= link_to 'ユーザー一覧', users_path, class: 'nav-link text-white'%>
         </li>
       </ul>
       <% if logged_in? %>
