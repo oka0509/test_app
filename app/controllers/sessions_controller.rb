@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  before_action :require_login, only: [:destroy]
+
   def new
   end
 
@@ -15,8 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if logged_in?
-    flash[:success] = t('logged_out')
-    redirect_to root_url
+    log_out
+    redirect_to root_url, flash: {success: t('logged_out')}
   end
 end

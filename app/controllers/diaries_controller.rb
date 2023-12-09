@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DiariesController < ApplicationController
+  before_action :require_login, only: [:create]
 
   def index(q: nil, page: nil)
     @diary = Diary.new
