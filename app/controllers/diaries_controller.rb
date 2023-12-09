@@ -11,9 +11,14 @@ class DiariesController < ApplicationController
   end
 
   def create
-    diary = Diary.new(diary_params)
-    diary.user_id = current_user.id
-    diary.save! if diary.valid?
+    @diary = Diary.new(diary_params)
+    @diary.user_id = current_user.id
+    if @diary.valid?
+      @diary.save!
+      flash[:success] = t('created_diary')
+    else
+      flash[:danger] = t('create_diary_failed')
+    end
     redirect_to root_path
   end
 

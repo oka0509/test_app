@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :password, confirmation: true
 
   def self.ransackable_attributes(_auth_object = nil)
     ['name']
