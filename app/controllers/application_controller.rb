@@ -3,9 +3,11 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  def require_login
-    return if logged_in?
+  protected
 
-    redirect_to new_session_path, flash: {danger: t('require_login')}
-  end
+    def require_login
+      return if logged_in?
+
+      redirect_to new_session_path, flash: {danger: t('require_login')}
+    end
 end
