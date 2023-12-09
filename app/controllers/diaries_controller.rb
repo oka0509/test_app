@@ -1,17 +1,17 @@
 class DiariesController < ApplicationController
 
-  def index
+  def index(q: nil, page: nil)
     @diary = Diary.new
-    @q = Diary.ransack(params[:q])
-    @diaries = @q.result.order(created_at: :desc).page(params[:page])
+    @q = Diary.ransack(q)
+    @diaries = @q.result.order(created_at: :desc).page(page)
   end
 
-  def show
-    @diary = Diary.find(params[:id])
+  def show(id)
+    @diary = Diary.find(id)
   end
 
-  def create
-    @diary = Diary.new(diary_params)
+  def create(diary)
+    @diary = Diary.new(diary.permit(:content))
     @diary.user_id = current_user.id
     if @diary.valid?
       @diary.save!
@@ -21,10 +21,4 @@ class DiariesController < ApplicationController
     end
     redirect_to root_path
   end
-
-  private
-
-    def diary_params
-      params.require(:diary).permit(:content)
-    end
 end

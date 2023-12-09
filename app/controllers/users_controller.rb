@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
+  def create(user)
+    @user = User.new(user.permit(:email, :name, :password, :password_confirmation))
     if @user.valid?
       @user.save!
       log_in @user
@@ -20,10 +20,4 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  private
-
-    def user_params
-      params.require(:user).permit(:email, :name, :password, :password_confirmation)
-    end
 end

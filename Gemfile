@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+gem 'action_args'
+
 gem 'bcrypt'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
