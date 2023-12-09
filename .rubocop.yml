@@ -258,3 +258,6 @@ RSpec/ChangeByZero:
 
 Naming/VariableNumber:
   Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
