@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Diary < ApplicationRecord
   has_many :tag_diaries, dependent: :destroy
   has_many :tags, through: :tag_diaries

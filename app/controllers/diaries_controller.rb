@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DiariesController < ApplicationController
 
   def index(q: nil, page: nil)

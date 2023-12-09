@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DiariesHelper
   def already_posted_for_today?(user)
     return false if user.diaries.empty?
