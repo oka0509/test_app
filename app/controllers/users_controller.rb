@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save!
       log_in @user
-      flash[:success] = t('logged_in')
-      redirect_to root_path
+      redirect_to root_path, flash: {success: t('user_created'), info: t('logged_in')}
     else
       flash.now[:danger] = t('user_create_failed')
       render :new, status: :unprocessable_entity

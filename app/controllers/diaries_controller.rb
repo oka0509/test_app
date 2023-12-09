@@ -15,9 +15,9 @@ class DiariesController < ApplicationController
     @diary.user_id = current_user.id
     if @diary.valid?
       @diary.save!
-      flash[:success] = t('created_diary')
+      flash[:success] = t('diary_created')
     else
-      flash[:danger] = t('create_diary_failed')
+      flash[:danger] = t('diary_create_failed')
     end
     redirect_to root_path
   end

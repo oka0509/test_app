@@ -6,11 +6,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       log_in user
-      flash[:success] = t('logged_in')
-      redirect_to root_path
+      redirect_to root_path, flash: {success: t('logged_in')}
     else
-      flash[:danger] = t('login_failed')
-      redirect_to new_session_path
+      redirect_to new_session_path, flash: {danger: t('login_failed')}
     end
   end
 
