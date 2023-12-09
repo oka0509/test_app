@@ -10,13 +10,10 @@ $(document).on('turbo:load', function() {
 
     const diaryAddButton = $('#diary-create-button');
     diaryAddButton.prop("disabled", true);
-    console.log(diaryAddButton)
     $('#diary-content').keyup(function() {
         if($(this)[0].value == '') {
-            console.log('if')
             diaryAddButton.prop("disabled", true);
         } else {
-            console.log('else')
             diaryAddButton.prop("disabled", false);
         }
     });
