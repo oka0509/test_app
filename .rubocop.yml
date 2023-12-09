@@ -188,6 +188,9 @@ Style/SlicingWithRange:
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 
+Style/StringLiterals:
+ Enabled: true
+
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: all_comparison_operators, equality_operators_only
 Style/YodaCondition:
