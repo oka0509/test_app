@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_06_131630) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_08_134511) do
   create_table "diaries", charset: "utf8mb3", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_131630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "diaries", "users"

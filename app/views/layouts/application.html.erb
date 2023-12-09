@@ -12,6 +12,9 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
     <div class='main-background'>
       <div class='container-md pt-1 px-5'>
         <div class="row">
@@ -33,11 +36,11 @@
                     </div>
                     <%= form_with model: @diary do |f| %>
                       <div class="modal-body form-group">
-                          <%= f.text_field :content, class:"form-control" %>
+                          <%= f.text_area :content, class: "form-control", rows: 3 , id: 'diary-content' %>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
-                        <%= f.submit "記録する", class: "btn btn-primary" %>
+                        <%= f.submit "記録する", id: 'diary-create-button', class: "btn btn-primary" %>
                       </div>
                     <% end %>
                   </div>

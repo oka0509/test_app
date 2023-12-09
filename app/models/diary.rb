@@ -3,6 +3,8 @@ class Diary < ApplicationRecord
   has_many :tags, through: :tag_diaries
   belongs_to :user
 
+  validates :content, presence: true
+
   def take_tag(tag)
     TagDiary.create_or_find_by!(diary_id: id, tag_id: tag.id)
   end
