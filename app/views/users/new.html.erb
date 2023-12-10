@@ -6,7 +6,7 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, class: 'w-50' do |f| %>
   <div>
     <%= f.label :email ,class: 'form-label'%>
     <%= f.email_field :email, class: 'form-control' %>
