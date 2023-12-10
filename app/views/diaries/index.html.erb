@@ -1,11 +1,21 @@
-<%= search_form_for @q, url: diaries_path do |f| %>
-  <%= f.label :content_cont, 'テキスト' %>
-  <%= f.search_field :content_cont %>
-  <%= f.label :user_name_cont, 'ユーザー名' %>
-  <%= f.search_field :user_name_cont %>
-  <%= f.label :user_name_cont, 'タグ名' %>
-  <%= f.collection_select :tags_name_cont, Tag.all, :id, :name, prompt: "" %>
-  <%= f.submit '検索' %>
+<%= search_form_for @q, url: diaries_path, class: 'mb-4' do |f| %>
+  <div class='row mt-2 mb-1 px-3'>
+    <div class='col-md-4'>
+      <%= f.label :content_cont, 'テキスト', class: 'form-label' %>
+      <%= f.search_field :content_cont, class: 'form-control' %>
+    </div>
+    <div class='col-md-4'>
+      <%= f.label :user_name_cont, 'ユーザー名', class: 'form-label' %>
+      <%= f.search_field :user_name_cont, class: 'form-control' %>
+    </div>
+    <div class='col-md-4'>
+      <%= f.label :user_name_cont, 'タグ名', class: 'form-label' %>
+    <%= f.collection_select :tags_name_cont, Tag.all, :id, :name, {prompt: ""}, {class: 'form-select'} %>
+    </div>
+    <div class='mt-1'>
+      <%= f.submit '検索', class: 'btn btn-secondary' %>
+    </div>
+  </div>
 <% end %>
 
 <%= paginate @diaries, theme: 'twitter-bootstrap-4'  %>
