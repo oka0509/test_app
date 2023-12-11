@@ -14,7 +14,7 @@ class DiariesController < ApplicationController
   end
 
   def create(diary)
-    @diary = Diary.new(diary.permit(:content))
+    @diary = Diary.new(diary.permit(:content, tag_ids: []))
     @diary.user_id = current_user.id
     if @diary.valid?
       @diary.save!
