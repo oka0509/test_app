@@ -7,12 +7,6 @@
   )
 end
 
-10.times do |n|
-  Tag.create!(
-    name: "category#{n + 1}"
-  )
-end
-
 User.all.each do |user|
   30.times do |n|
   user.diaries.create!(
