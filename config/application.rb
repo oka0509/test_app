@@ -19,7 +19,6 @@ module TestApp
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
     Rails.application.config.i18n.default_locale = :ja
-    Faker::Config.locale = :ja
 
     # Configuration for the application, engines, and railties goes here.
     #
