@@ -7,7 +7,7 @@
       <p><%= @diary.content %></p>
       <p>
         <% @diary.tags.each do |tag| %>
-          <%= link_to root_path(q: {tags_name_cont: tag.id}) do %>
+          <%= link_to root_path(q: {tags_name_cont: tag.name}) do %>
             <span class='badge text-bg-secondary'><%= tag.name %></span>
             <% end %>
         <% end%>
@@ -32,7 +32,7 @@
               <% end %>
               <p>
                 <% diary.tags.each do |tag| %>
-                  <%= link_to root_path(q: {tags_name_cont: tag.id}) do %>
+                  <%= link_to root_path(q: {tags_name_cont: tag.name}) do %>
                     <span class='badge text-bg-secondary'><%= tag.name %></span>
                     <% end %>
                 <% end%>
