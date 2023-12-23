@@ -17,4 +17,10 @@ $(document).on('turbo:load', function() {
             diaryAddButton.prop("disabled", false);
         }
     });
+
+    $('#modal-open').on('click', function() {
+        setTimeout(function(){
+            $('#diary-content').focus();
+        },500);
+    })
 })
