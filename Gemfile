@@ -71,6 +71,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
