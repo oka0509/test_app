@@ -38,7 +38,7 @@
                     </div>
                     <%= form_with model: @diary do |f| %>
                       <div class="modal-body form-group">
-                          <%= f.text_area :content, class: "form-control", rows: 3 , id: 'diary-content' %>
+                          <%= f.text_area :content, class: "form-control", rows: 5 , id: 'diary-content' %>
                            <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name%>
                       </div>
                       <div class="modal-footer">
