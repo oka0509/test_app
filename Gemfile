@@ -62,7 +62,9 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'bcrypt_pbkdf'
   gem 'debug', platforms: %i[mri windows]
+  gem 'ed25519'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'gimei'
