@@ -1,43 +1,30 @@
 name: Deploy To Server
 
 on:
-  # Deploy on merge to main
   push:
     branches: [ main ]
-#  # Manually deploy branch
-#  workflow_dispatch:
-#    branches: [ main ]
-
 jobs:
   deploy:
-    name: Capistrano Deploy to Server
+    name: Capistrano Deploy to Staging
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install SSH key to Server
+      - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_KEY }}
-          name: github-actions
-          known_hosts: ${{ secrets.SSH_HOST }}
-          config: |
-            host oka1791.net
-              IdentityFile ~/.ssh/github-actions
-              IdentitiesOnly yes
-              ForwardAgent yes
+          name: github-actions # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
-      - name: Adding Known Hosts
-        run: ssh-keyscan -H ${{ secrets.SSH_HOST }}
-
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
-      - name: Deploy to production
+      - name: Deploy to EC2
         run: |
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/github-actions
-          bundle exec cap production deploy
+          BRANCH=develop bundle exec cap production deploy
