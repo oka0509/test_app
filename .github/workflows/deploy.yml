@@ -19,7 +19,7 @@ jobs:
         with:
           key: ${{ secrets.SSH_KEY }}
           name: github-actions
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          known_hosts: ${{ secrets.SSH_HOST }}
           config: |
             host oka1791.net
               IdentityFile ~/.ssh/github-actions
