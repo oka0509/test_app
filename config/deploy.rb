@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+set :branch, 'main'
+
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
 lock '3.18.0'
 
