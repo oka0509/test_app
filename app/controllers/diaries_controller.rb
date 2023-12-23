@@ -4,12 +4,13 @@ class DiariesController < ApplicationController
   before_action :require_login, only: [:create]
 
   def index(q: nil, page: nil)
-    @diary = Diary.new
+    @new_diary = Diary.new
     @q = Diary.ransack(q)
     @diaries = @q.result.order(created_at: :desc).page(page)
   end
 
   def show(id)
+    @new_diary = Diary.new
     @diary = Diary.find(id)
   end
 
