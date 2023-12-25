@@ -11,6 +11,8 @@ gem 'bcrypt'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
+gem 'rails-i18n'
+
 gem 'ransack'
 
 gem 'kaminari'
@@ -68,7 +70,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'gimei'
-  gem 'rails-i18n'
   gem 'rspec-rails'
 end
 
