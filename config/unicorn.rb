@@ -3,8 +3,6 @@
 # rootパスのディレクトリを指定
 root_path = File.expand_path('../', __dir__)
 
-ENV['BUNDLE_GEMFILE'] = root_path + "/Gemfile"
-
 # アプリケーションサーバの性能を決定する
 worker_processes 2
 
@@ -34,6 +32,10 @@ GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
 check_client_connection false
 
 run_once = true
+
+before_exec do |server|
+  ENV["BUNDLE_GEMFILE"] = File.join(File.expand_path("../../../", __FILE__), "current", "Gemfile")
+end
 
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) &&
