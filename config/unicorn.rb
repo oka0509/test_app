@@ -3,6 +3,8 @@
 # rootパスのディレクトリを指定
 root_path = File.expand_path('../', __dir__)
 
+ENV['BUNDLE_GEMFILE'] = root_path + "/Gemfile"
+
 # アプリケーションサーバの性能を決定する
 worker_processes 2
 
